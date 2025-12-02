@@ -30,7 +30,7 @@ class EventController extends Controller
             'category'      => 'required|string|max:100',
             'price'         => 'required|numeric|min:0',
             'total_tickets' => 'required|integer|min:1',
-            'image'         => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+           'image' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
         ]);
 
         $imagePath = null;

@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +43,7 @@ Route::apiResource('orders', OrderController::class);
 
 // Tickets (optional)
 Route::apiResource('tickets', TicketController::class);
+
+Route::middleware('auth:sanctum')->get('/dashboard', [DashboardController::class, 'index']);
+
+Route::middleware('auth:sanctum')->get('/events/{id}/buyers', [DashboardController::class, 'buyers']);
