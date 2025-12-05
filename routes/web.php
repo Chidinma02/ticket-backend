@@ -12,7 +12,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+use Illuminate\Support\Facades\Artisan;
 
+Route::get('/run-migration', function () {
+    // This command triggers the migration
+    Artisan::call('migrate', ['--force' => true]);
+    
+    return 'Migration completed! Database is ready.';
+});
 Route::get('/', function () {
     return view('welcome');
 });
